@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: fact_sales
+    description: Transaction fact table. One row per line item ordered.
+    columns:
+      - name: OrderId
+        description: Degenerate dimension for order.
+        tests:
+            - unique
+            - not_null
+      - name: customerkey
+        description: Dimension key for dim_customer
+      - name: employeekey
+        description: role play Order Date Dimension key for dim_date
+      - name: orderdatekey
+        description: role play Order Date Dimension key for dim_date
+      - name: productkey
+        description: Dimension key for dim_product
+      - name: quantity
+        description: addictive fact for total quantity of product sold or orders
+      - name: exxtendedpriceamount
+        description: addictive fact for total amount of product on order quantity times product price
+      - name: discountamount
+        description: additive fact for extendedpriceamount times product price
+      - name: soldamount
+        description: addictive fact for extended price amount - discount amout
